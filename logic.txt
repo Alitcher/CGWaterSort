@@ -1,0 +1,70 @@
+-------- GameLogic---------------
+
+Total glasses // less than or eaual to 9
+Glass completed //
+EmptyGlass // 1 if total glass is less than or equal to 3, else empty glasses are 2
+
+PickedGlass
+
+-----------------------
+GenerateLevel()
+-----------------------
+PickGlass(int glassId)
+Fillin(int glassIdToFill) -> CheckGlassFull(),  CheckGlassCompleted() | PutGlassesDown() | CheckLevelCompleted()
+
+CheckGlassEmpty()
+CheckGlassFull()
+CheckGlassCompleted()
+PutGlassesDown()
+
+CheckLevelCompleted() Glass completed + EmptyGlasses = Total glasses
+
+------ System
+Restart()
+Exit()
+
+------- DEV FEATURE
+
+GOTO_LEVEL
+
+
+-----------------------------------------------------------------------------
+---------------------- Description
+
+-------- GameLogic for each level---------------
+
+int Total glasses 
+-less than or eaual to 9 and always greater than 2
+
+int Glass completed // will increase if both CheckGlassFull() and CheckGlassCompleted() are true
+int EmptyGlass // 1 if total glass is less than or equal to 3, else empty glasses are 2
+
+int PickedGlass // if the player is not holding any glass then the value is 9999. if holding, then the value is glassId
+
+-----------------------
+PickGlass(int glassId)
+- it will check if the glass is empty or not. if it is, then return. the player is not allowed to pick any empty glass.
+- set PickedGlass = glassId
+
+Fillin(int glassIdToFill) -> CheckGlassFull(),  CheckGlassCompleted() | PutGlassesDown() | CheckLevelCompleted()
+
+CheckGlassEmpty()
+CheckGlassFull()
+CheckGlassCompleted()
+PutGlassesDown()
+
+CheckLevelCompleted() check if Glass completed + EmptyGlasses = Total glasses is true
+
+------- DEV FEATURE
+
+GOTO_LEVEL 
+-dev type the particular level and go to that level 
+-By shift+ctrl+<level>
+
+---------------------
+
+Analysis 
+
+Glass completed + EmptyGlasses = Total glasses
+Glass completed + EmptyGlasses will never be greater or less than Total glasses
+Glass completed always be greater than EmptyGlasses
